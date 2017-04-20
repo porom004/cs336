@@ -11,4 +11,4 @@ $ bin/hadoop jar contrib/streaming/hadoop-*streaming*.jar \
 -file /home/sb/reducer.py   -reducer /home/sb/mmas_reducer.py \
 -input /user/sb/cs336/* -output /user/sb/cs336
 
-
+3
