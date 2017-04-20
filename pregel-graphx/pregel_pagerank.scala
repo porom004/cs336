@@ -21,7 +21,7 @@ temp.vertices.take(5) // Displays the first five outdegrees in the pairs <Vertex
 
 
 // The edge values are defined using mapTriplets() function to initialise the weights of every edge
-val et = temp.mapTriplets(edge => 1.0/edge.srcAttr) // Each edge is initially defined to 1/(num of vertices)
+val et = temp.mapTriplets(edge => 1.0/edge.srcAttr)
 println("The edge values : ")
 et.triplets.take(5) // Displays five such triplet instances 
 
