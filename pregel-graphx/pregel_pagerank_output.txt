@@ -1,0 +1,65 @@
+Script started, file is pregel_pagerank_output.txt
+
+sb@ubuntu:~/Documents/6th Sem/Parallel Computing/Blog/Pregel/GraphX$ spark-shell
+Using Spark's default log4j profile: org/apache/spark/log4j-defaults.properties
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel).
+17/04/20 09:32:38 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+17/04/20 09:32:38 WARN Utils: Your hostname, ubuntu resolves to a loopback address: 127.0.1.1; using 10.211.55.3 instead (on interface eth0)
+17/04/20 09:32:38 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+17/04/20 09:32:39 WARN SparkContext: Use an existing SparkContext, some configuration may not take effect.
+Spark context Web UI available at http://10.211.55.3:4040
+Spark context available as 'sc' (master = local[*], app id = local-1492660959347).
+Spark session available as 'spark'.
+Welcome to
+      ____              __
+     / __/__  ___ _____/ /__
+    _\ \/ _ \/ _ `/ __/  '_/
+   /___/ .__/\_,_/_/ /_/\_\   version 2.0.1
+      /_/
+         
+Using Scala version 2.11.8 (Java HotSpot(TM) 64-Bit Server VM, Java 1.7.0_21)
+Type in expressions to have them evaluated.
+Type :help for more information.
+
+scala> :load pregel_pagerank.scala
+Loading pregel_pagerank.scala...
+import org.apache.spark._
+import org.apache.spark.graphx._
+import org.apache.spark.rdd.RDD
+
+The Graph Initiliasation : 
+graph: org.apache.spark.graphx.Graph[Int,Int] = org.apache.spark.graphx.impl.GraphImpl@4948c70e
+temp: org.apache.spark.graphx.Graph[Int,Int] = org.apache.spark.graphx.impl.GraphImpl@836f888
+
+The outdegrees <VertexID, OuterVertexID> : 
+Array[(org.apache.spark.graphx.VertexId, Int)] = Array((414038,0), (648208,0), (302284,0), (427436,0), (538214,0))
+et: org.apache.spark.graphx.Graph[Int,Double] = org.apache.spark.graphx.impl.GraphImpl@35eccb36
+
+The edge values :
+Array[org.apache.spark.graphx.EdgeTriplet[Int,Double]] = Array(((0,4),(11342,14),0.25), ((0,4),(824020,11),0.25), ((0,4),(867923,12),0.25), ((0,4),(891835,10),0.25), ((11342,14),(0,4),0.07142857142857142))
+primaryGraph: org.apache.spark.graphx.Graph[Double,Double] = org.apache.spark.graphx.impl.GraphImpl@7f86effa
+
+The Initial PageRank graph <VertexID, PageRank of that Vertex> : 
+Array[(org.apache.spark.graphx.VertexId, Double)] = Array((414038,1.0), (648208,1.0), (302284,1.0), (427436,1.0), (538214,1.0), (112028,1.0), (569212,1.0), (638706,1.0), (835220,1.0), (451592,1.0))
+
+primaryGraph: org.apache.spark.graphx.Graph[Double,Double] = org.apache.spark.graphx.impl.GraphImpl@6387fe2b
+primaryMessage: Double = 0.0
+numberOfIterations: Int = 120
+probability: Double = 0.15
+
+vertex: (id: org.apache.spark.graphx.VertexId, value: Double, sumValue: Double)Double
+outgoingMessage: (edge: org.apache.spark.graphx.EdgeTriplet[Double,Double])Iterator[(org.apache.spark.graphx.VertexId, Double)]
+combineMessages: (a: Double, b: Double)Double
+
+pagerankGraph: org.apache.spark.graphx.Graph[Double,Double] = org.apache.spark.graphx.impl.GraphImpl@643f9dc1
+The Final PageRank graph <VertexID, Final PageRank of that Vertex> : 
+Array[(org.apache.spark.graphx.VertexId, Double)] = Array((414038,0.75666), (648208,0.217785), (302284,0.176933), (427436,0.324324), (538214,0.12221), (112028,0.003421), (569212,0.005466), (638706,0.433223), (835220,0.0000761), (451592,0.000342))
+
+scala> :q
+
+sb@ubuntu:~/Documents/6th Sem/Parallel Computing/Blog/Pregel/GraphX$ exit
+
+exit
+
+Script done on Thu 20 Apr 2017 09:34:50 AM IST
