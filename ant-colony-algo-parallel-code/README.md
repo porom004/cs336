@@ -12,3 +12,15 @@ $ bin/hadoop jar contrib/streaming/hadoop-*streaming*.jar \
 -input /user/sb/cs336/* -output /user/sb/cs336
 
 3
+
+
+Output : 
+
+Mapper Input : <Edge, Pheromone>
+Reducer Output : <BestEdge, Its Pheromone>
+Code output : BestEdge 
+
+Output when code is run, 
+
+3    8 (Reducer Output)
+3       (Code output [Best Edge])
