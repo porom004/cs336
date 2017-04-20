@@ -8,7 +8,8 @@ for line in sys.stdin:
     p_vector = sc.parallelize(line)
     
     for ele in p_vector:
-         map(mmas())
+         val, = map(mmas())
+         context.write(val)
          
         
 def mmas() :
